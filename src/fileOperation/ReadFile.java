@@ -2,11 +2,12 @@ package fileOperation;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 //import java.io.Reader;
 
 public class ReadFile {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         FileReader fr = null;
         BufferedReader br = null;
         String path = "/Users/alifnabila/Sublime/homework.txt";
@@ -24,6 +25,15 @@ public class ReadFile {
             }
         } catch (Exception ex){
             System.out.println("File is not readable");
+        }
+        finally{
+            if(fr !=null){
+                fr.close();
+            }
+            if (br !=null){
+                br.close();
+            }
+
         }
 
     }
